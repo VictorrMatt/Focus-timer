@@ -1,0 +1,204 @@
+:root {
+  font-size: 62.5%;
+  --white-theme-0: #ffffff;
+  --white-theme-1: #c4c4cc;
+  --white-card-bg: #e1e1e6;
+  --white-card-default: #02799d;
+  --black-colors: #323238;
+  --black-bg: #121214;
+  --black-card-bg: #29292e;
+  --black-card-default: #0a3442;
+  user-select: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+body,
+.timer {
+  min-width: 42.5rem;
+}
+
+main,
+.controls-box {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+main {
+  gap: 15.2rem;
+}
+
+.controls-box {
+  flex-direction: column;
+}
+
+.timer,
+.controls,
+.cards-box,
+.switch-theme {
+  opacity: 0;
+}
+
+.timer {
+  font-size: 12.6rem;
+  text-align: center;
+  font-family: "Roboto", cursive;
+}
+
+.controls {
+  display: flex;
+}
+
+.cards-box {
+  display: grid;
+  grid-template-areas:
+    "auto auto"
+    "auto auto";
+}
+
+svg,
+.cards-box div,
+[type="range"] {
+  cursor: pointer;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.2rem;
+
+  width: 13.8rem;
+  height: 15.2rem;
+
+  border-radius: 2.4rem;
+}
+
+.card img {
+  width: 4.421rem;
+}
+
+[type="range"] {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 9rem; /* Full-width */
+  height: 0.4rem; /* Specified height */
+  border-radius: 2.4rem;
+}
+
+[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  display: block;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 100%;
+}
+
+.cards-box div,
+.controls-box svg {
+  transition: scale 200ms;
+}
+
+.cards-box div:hover {
+  scale: 1.1;
+}
+
+.controls-box svg:hover {
+  scale: 1.2;
+}
+
+.controls,
+.cards-box,
+.timer {
+  animation-name: spacing;
+}
+
+.controls,
+.cards-box,
+.timer,
+.switch-theme {
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.timer {
+  animation-name: going-down;
+  animation-delay: 300ms;
+}
+
+.controls,
+.switch-theme {
+  animation-delay: 600ms;
+}
+
+.switch-theme {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  animation-name: going-down;
+}
+
+/* THEME SWITCH - HIDING THE ICON */
+svg.hide {
+  display: none;
+}
+
+@media (max-width: 940px) {
+  main {
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes going-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spacing {
+  0% {
+    opacity: 0;
+    gap: 0;
+  }
+
+  100% {
+    opacity: 1;
+    gap: 3.2rem;
+  }
+}
