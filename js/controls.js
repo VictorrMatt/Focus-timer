@@ -13,7 +13,6 @@ export default function Controls({
   const sounds = Sounds();
   let activeSound = sounds.rain;
   let activeCard = rainCard;
-  sounds.rain.play();
 
   function play() {
     timer.play();

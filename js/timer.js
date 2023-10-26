@@ -2,7 +2,7 @@ import { updateDisplay } from "./utils.js";
 import Sounds from "./sounds.js";
 
 export default function Timer({ minutesDisplay, secondsDisplay }) {
-  let sounds;
+  const sounds = Sounds();
   let minutes = Number(minutesDisplay.textContent);
   let seconds = Number(secondsDisplay.textContent);
   let running;
